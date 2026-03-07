@@ -265,6 +265,42 @@
     .hover\:bg-white\/8:hover { background-color: rgba(255,250,240,.08) !important; }
     .placeholder-white\/30::placeholder { color: rgba(255,250,240,.30) !important; }
     .ring-black\/5 { --tw-ring-color: rgba(25,35,80,.06) !important; }
+
+  /* ════ URGENCY BAR ════ */
+  #urgency-bar {
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+  }
+  #urgency-bar.ub-visible {
+    transform: translateY(0);
+  }
+  .ub-digit-box {
+    background: rgb(var(--color-primary-rgb));
+    color: rgb(var(--color-secondary-rgb));
+    font-weight: 900;
+    font-size: 1.4rem;
+    line-height: 1;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -1px;
+  }
+  .ub-digit-colon {
+    color: rgb(var(--color-primary-rgb));
+    font-weight: 900;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    padding: 0 2px;
+  }
+  @media (max-width: 639px) {
+    .ub-digit-box { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; }
+    .ub-digit-colon { font-size: 1.1rem; }
+  }
+
   </style>
 </head>
 <body class="antialiased">
@@ -1650,6 +1686,94 @@
   }
 
 
+
+
+<!-- ═══ URGENCY BAR ═══ -->
+<div id="urgency-bar" class="fixed bottom-0 left-0 right-0 z-50 shadow-2xl">
+
+  <!-- Row 1: countdown -->
+  <div class="bg-secondary px-4 py-2 flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-primary font-black text-xs uppercase tracking-widest">🔥 Bonus expiring in</span>
+    <div class="flex items-end gap-1">
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="ub-digit-box" id="ub-h">12</span>
+        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">hrs</span>
+      </div>
+      <span class="ub-digit-colon mb-4">:</span>
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="ub-digit-box" id="ub-m">00</span>
+        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">min</span>
+      </div>
+      <span class="ub-digit-colon mb-4">:</span>
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="ub-digit-box" id="ub-s">00</span>
+        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">sec</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: product + CTA -->
+  <div class="bg-primary px-5 py-3 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex flex-col leading-tight">
+      <span class="text-canvas font-bold text-sm md:text-base">Get Bond Style Communication Guide</span>
+      <span class="text-canvas/60 text-xs mt-0.5"><span class="line-through text-canvas/30">&#8377;2,497</span> &nbsp;<span class="text-secondary font-extrabold text-base">&#8377;497 only</span></span>
+    </div>
+    <a href="#value" class="btn-shimmer text-primary font-extrabold py-3 px-8 rounded-xl shadow-xl hover:scale-105 transition-transform text-sm md:text-base shrink-0 whitespace-nowrap">
+      Act Now
+    </a>
+  </div>
+
+</div>
+
+<script>
+  /* ════ URGENCY BAR: 12-hour countdown with localStorage reset ════ */
+  (function(){
+    const KEY = 'ub_deadline';
+    function getOrSetDeadline() {
+      let d = parseInt(localStorage.getItem(KEY), 10);
+      if (!d || Date.now() >= d) {
+        d = Date.now() + 12 * 3600 * 1000;
+        localStorage.setItem(KEY, d);
+      }
+      return d;
+    }
+    let deadline = getOrSetDeadline();
+    function tickUB() {
+      let rem = deadline - Date.now();
+      if (rem <= 0) {
+        deadline = Date.now() + 12 * 3600 * 1000;
+        localStorage.setItem(KEY, deadline);
+        rem = 12 * 3600 * 1000;
+      }
+      const h = Math.floor(rem / 3600000);
+      const m = Math.floor((rem % 3600000) / 60000);
+      const s = Math.floor((rem % 60000) / 1000);
+      document.getElementById('ub-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('ub-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('ub-s').textContent = String(s).padStart(2,'0');
+    }
+    tickUB();
+    setInterval(tickUB, 1000);
+
+    /* scroll reveal — show after hero leaves viewport */
+    const hero = document.querySelector('header');
+    const bar  = document.getElementById('urgency-bar');
+    if (hero && bar) {
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) {
+            bar.classList.add('ub-visible');
+          } else {
+            bar.classList.remove('ub-visible');
+          }
+        });
+      }, { threshold: 0 });
+      obs.observe(hero);
+    }
+
+    /* add bottom padding to body so bar doesn't obscure content */
+    document.body.style.paddingBottom = '108px';
+  })();
 </script>
 
 </body>
