@@ -316,7 +316,7 @@
   .ub-meta-sep { color: #333; font-size: 0.7rem; }
   .ub-price-old { color: #555; font-size: 0.7rem; text-decoration: line-through; }
   .ub-price-now { color: rgb(var(--color-secondary-rgb)); font-weight: 700; font-size: 0.75rem; }
-  .ub-right { flex-shrink: 0; }
+  .ub-right { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
   .ub-cta-btn {
     background: rgb(var(--color-secondary-rgb));
     color: #fff;
@@ -1734,14 +1734,15 @@
           <span class="ub-digit-colon">:</span>
           <span class="ub-digit-box" id="ub-s">00</span>
         </div>
-        <span class="ub-meta-sep">&middot;</span>
+      </div>
+    </div>
+    <!-- Right: CTA + price -->
+    <div class="ub-right">
+      <a href="#value" class="ub-cta-btn">Act Now</a>
+      <div style="display:flex;align-items:center;gap:0.25rem;">
         <span class="ub-price-old">&#8377;2,497</span>
         <span class="ub-price-now">&#8377;497 only</span>
       </div>
-    </div>
-    <!-- Right: CTA -->
-    <div class="ub-right">
-      <a href="#value" class="ub-cta-btn">Act Now</a>
     </div>
   </div>
 </div>
