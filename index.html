@@ -261,48 +261,58 @@
   /* ════ URGENCY BAR ════ */
   #urgency-bar {
     background: #111;
+    border-top: 1px solid #2a2a2a;
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(.16,1,.3,1);
   }
-  #urgency-bar.ub-visible {
-    transform: translateY(0);
+  #urgency-bar.ub-visible { transform: translateY(0); }
+  .ub-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 1.25rem;
   }
+  .ub-left { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+  .ub-right { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+  .ub-title { color: #ccc; font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ub-sep { color: #444; flex-shrink: 0; }
+  .ub-label { color: #aaa; font-size: 0.75rem; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  .ub-timer { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
   .ub-digit-box {
-    background: #2a2a2a;
+    background: #222;
     color: #fff;
     font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1;
-    min-width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
+    font-size: 0.95rem;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0.3rem;
+    padding: 0 0.2rem;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 0;
   }
-  .ub-digit-colon {
-    color: #666;
-    font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1;
-    padding: 0 1px;
-  }
+  .ub-digit-colon { color: #555; font-weight: 700; font-size: 0.95rem; padding: 0 1px; }
+  .ub-price-old { color: #555; font-size: 0.7rem; text-decoration: line-through; }
+  .ub-price-now { color: #fff; font-weight: 800; font-size: 0.9rem; margin-left: 0.2rem; }
   .ub-cta-btn {
     background: rgb(var(--color-secondary-rgb));
     color: #fff;
-    font-weight: 800;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.45rem 1.1rem;
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
     white-space: nowrap;
-    transition: opacity 0.2s;
     text-decoration: none;
     display: inline-block;
+    transition: opacity 0.15s;
   }
-  .ub-cta-btn:hover { opacity: 0.88; }
+  .ub-cta-btn:hover { opacity: 0.85; }
+  @media (max-width: 480px) {
+    .ub-title, .ub-sep, .ub-price-old, .ub-price-now { display: none; }
+    .ub-label { font-size: 0.7rem; }
+  }
 
   </style>
 </head>
@@ -1677,12 +1687,13 @@
 
 <!-- ═══ URGENCY BAR ═══ -->
 <div id="urgency-bar" class="fixed bottom-0 left-0 right-0 z-50">
-  <div class="flex items-center justify-between gap-3 px-5 py-3 flex-wrap">
-
-    <!-- Left: label + countdown -->
-    <div class="flex items-center gap-2 flex-wrap">
-      <span style="color:#aaa;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;">🔥 Offer ends in</span>
-      <div class="flex items-center gap-0.5">
+  <div class="ub-inner">
+    <!-- Left: copy + timer -->
+    <div class="ub-left">
+      <span class="ub-title">Get Bond Style Communication Guide</span>
+      <span class="ub-sep">&middot;</span>
+      <span class="ub-label">🔥 Offer ends in</span>
+      <div class="ub-timer">
         <span class="ub-digit-box" id="ub-h">12</span>
         <span class="ub-digit-colon">:</span>
         <span class="ub-digit-box" id="ub-m">00</span>
@@ -1690,16 +1701,14 @@
         <span class="ub-digit-box" id="ub-s">00</span>
       </div>
     </div>
-
     <!-- Right: price + CTA -->
-    <div class="flex items-center gap-4">
-      <div class="leading-tight">
-        <span style="color:#666;font-size:0.7rem;text-decoration:line-through;">&#8377;2,497</span>
-        <span style="color:#fff;font-weight:800;font-size:1rem;margin-left:0.3rem;">&#8377;497</span>
+    <div class="ub-right">
+      <div>
+        <span class="ub-price-old">&#8377;2,497</span>
+        <span class="ub-price-now">&#8377;497</span>
       </div>
-      <a href="#value" class="ub-cta-btn">Act Now &rarr;</a>
+      <a href="#value" class="ub-cta-btn">Get Now &rarr;</a>
     </div>
-
   </div>
 </div>
 
