@@ -306,11 +306,29 @@
     white-space: nowrap;
     text-decoration: none;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
     transition: opacity 0.15s;
   }
-  .ub-cta-btn:hover { opacity: 0.85; }
-  @media (max-width: 480px) {
-    .ub-title, .ub-sep, .ub-price-old, .ub-price-now { display: none; }
+  .ub-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    animation: ub-shimmer 2.2s infinite;
+  }
+  @keyframes ub-shimmer {
+    0%   { left: -75%; }
+    60%  { left: 125%; }
+    100% { left: 125%; }
+  }
+  .ub-cta-btn:hover { opacity: 0.88; }
+  @media (max-width: 560px) {
+    .ub-inner { flex-wrap: wrap; gap: 0.5rem; padding: 0.6rem 1rem; }
+    .ub-title { font-size: 0.75rem; }
     .ub-label { font-size: 0.7rem; }
   }
 
@@ -1707,7 +1725,7 @@
         <span class="ub-price-old">&#8377;2,497</span>
         <span class="ub-price-now">&#8377;497</span>
       </div>
-      <a href="#value" class="ub-cta-btn">Get Now &rarr;</a>
+      <a href="#value" class="ub-cta-btn">Act Now</a>
     </div>
   </div>
 </div>
