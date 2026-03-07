@@ -261,7 +261,7 @@
   /* ════ URGENCY BAR ════ */
   #urgency-bar {
     background: #111;
-    border-top: 1px solid #2a2a2a;
+    border-top: 1px solid #222;
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(.16,1,.3,1);
   }
@@ -270,39 +270,60 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.65rem 1.25rem;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
   }
-  .ub-left { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
-  .ub-right { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
-  .ub-title { color: #ccc; font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .ub-sep { color: #444; flex-shrink: 0; }
-  .ub-label { color: #aaa; font-size: 0.75rem; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
-  .ub-timer { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+  .ub-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
+  }
+  .ub-title {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+  .ub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+  }
+  .ub-label { color: #aaa; font-size: 0.7rem; font-weight: 500; white-space: nowrap; }
+  .ub-timer { display: flex; align-items: center; gap: 2px; }
   .ub-digit-box {
     background: #222;
     color: #fff;
     font-weight: 700;
-    font-size: 0.95rem;
-    min-width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 0.25rem;
+    font-size: 0.82rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.2rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0.2rem;
+    padding: 0 0.15rem;
     font-family: 'Inter', sans-serif;
   }
-  .ub-digit-colon { color: #555; font-weight: 700; font-size: 0.95rem; padding: 0 1px; }
+  .ub-digit-colon { color: #555; font-weight: 700; font-size: 0.82rem; padding: 0 1px; }
+  .ub-meta-sep { color: #333; font-size: 0.7rem; }
   .ub-price-old { color: #555; font-size: 0.7rem; text-decoration: line-through; }
-  .ub-price-now { color: #fff; font-weight: 800; font-size: 0.9rem; margin-left: 0.2rem; }
+  .ub-price-now { color: rgb(var(--color-secondary-rgb)); font-weight: 700; font-size: 0.75rem; }
+  .ub-right { flex-shrink: 0; }
   .ub-cta-btn {
     background: rgb(var(--color-secondary-rgb));
     color: #fff;
     font-weight: 700;
-    padding: 0.45rem 1.1rem;
+    padding: 0.55rem 1.2rem;
     border-radius: 0.4rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     white-space: nowrap;
     text-decoration: none;
     display: inline-block;
@@ -326,11 +347,6 @@
     100% { left: 125%; }
   }
   .ub-cta-btn:hover { opacity: 0.88; }
-  @media (max-width: 560px) {
-    .ub-inner { flex-wrap: wrap; gap: 0.5rem; padding: 0.6rem 1rem; }
-    .ub-title { font-size: 0.75rem; }
-    .ub-label { font-size: 0.7rem; }
-  }
 
   </style>
 </head>
@@ -1706,25 +1722,25 @@
 <!-- ═══ URGENCY BAR ═══ -->
 <div id="urgency-bar" class="fixed bottom-0 left-0 right-0 z-50">
   <div class="ub-inner">
-    <!-- Left: copy + timer -->
+    <!-- Left: stacked title + meta row -->
     <div class="ub-left">
       <span class="ub-title">Get Bond Style Communication Guide</span>
-      <span class="ub-sep">&middot;</span>
-      <span class="ub-label">🔥 Offer ends in</span>
-      <div class="ub-timer">
-        <span class="ub-digit-box" id="ub-h">12</span>
-        <span class="ub-digit-colon">:</span>
-        <span class="ub-digit-box" id="ub-m">00</span>
-        <span class="ub-digit-colon">:</span>
-        <span class="ub-digit-box" id="ub-s">00</span>
+      <div class="ub-meta">
+        <span class="ub-label">🔥 Offer ends in</span>
+        <div class="ub-timer">
+          <span class="ub-digit-box" id="ub-h">12</span>
+          <span class="ub-digit-colon">:</span>
+          <span class="ub-digit-box" id="ub-m">00</span>
+          <span class="ub-digit-colon">:</span>
+          <span class="ub-digit-box" id="ub-s">00</span>
+        </div>
+        <span class="ub-meta-sep">&middot;</span>
+        <span class="ub-price-old">&#8377;2,497</span>
+        <span class="ub-price-now">&#8377;497 only</span>
       </div>
     </div>
-    <!-- Right: price + CTA -->
+    <!-- Right: CTA -->
     <div class="ub-right">
-      <div>
-        <span class="ub-price-old">&#8377;2,497</span>
-        <span class="ub-price-now">&#8377;497</span>
-      </div>
       <a href="#value" class="ub-cta-btn">Act Now</a>
     </div>
   </div>
