@@ -260,6 +260,7 @@
 
   /* ════ URGENCY BAR ════ */
   #urgency-bar {
+    background: #111;
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(.16,1,.3,1);
   }
@@ -267,31 +268,41 @@
     transform: translateY(0);
   }
   .ub-digit-box {
-    background: rgb(var(--color-primary-rgb));
-    color: rgb(var(--color-secondary-rgb));
-    font-weight: 900;
-    font-size: 1.4rem;
+    background: #2a2a2a;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
     line-height: 1;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 0.4rem;
-    display: flex;
+    min-width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: -1px;
+    padding: 0 0.3rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0;
   }
   .ub-digit-colon {
-    color: rgb(var(--color-primary-rgb));
-    font-weight: 900;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-    padding: 0 2px;
+    color: #666;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0 1px;
   }
-  @media (max-width: 639px) {
-    .ub-digit-box { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; }
-    .ub-digit-colon { font-size: 1.1rem; }
+  .ub-cta-btn {
+    background: rgb(var(--color-secondary-rgb));
+    color: #fff;
+    font-weight: 800;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    display: inline-block;
   }
+  .ub-cta-btn:hover { opacity: 0.88; }
 
   </style>
 </head>
@@ -1665,40 +1676,31 @@
 </script>
 
 <!-- ═══ URGENCY BAR ═══ -->
-<div id="urgency-bar" class="fixed bottom-0 left-0 right-0 z-50 shadow-2xl">
+<div id="urgency-bar" class="fixed bottom-0 left-0 right-0 z-50">
+  <div class="flex items-center justify-between gap-3 px-5 py-3 flex-wrap">
 
-  <!-- Row 1: countdown -->
-  <div class="bg-secondary px-4 py-2 flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-primary font-black text-xs uppercase tracking-widest">🔥 Bonus expiring in</span>
-    <div class="flex items-end gap-1">
-      <div class="flex flex-col items-center gap-0.5">
+    <!-- Left: label + countdown -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <span style="color:#aaa;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;">🔥 Offer ends in</span>
+      <div class="flex items-center gap-0.5">
         <span class="ub-digit-box" id="ub-h">12</span>
-        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">hrs</span>
-      </div>
-      <span class="ub-digit-colon mb-4">:</span>
-      <div class="flex flex-col items-center gap-0.5">
+        <span class="ub-digit-colon">:</span>
         <span class="ub-digit-box" id="ub-m">00</span>
-        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">min</span>
-      </div>
-      <span class="ub-digit-colon mb-4">:</span>
-      <div class="flex flex-col items-center gap-0.5">
+        <span class="ub-digit-colon">:</span>
         <span class="ub-digit-box" id="ub-s">00</span>
-        <span class="text-primary text-[9px] font-bold uppercase tracking-wider">sec</span>
       </div>
     </div>
-  </div>
 
-  <!-- Row 2: product + CTA -->
-  <div class="bg-primary px-5 py-3 flex items-center justify-between gap-4 flex-wrap">
-    <div class="flex flex-col leading-tight">
-      <span class="text-canvas font-bold text-sm md:text-base">Get Bond Style Communication Guide</span>
-      <span class="text-canvas/60 text-xs mt-0.5"><span class="line-through text-canvas/30">&#8377;2,497</span> &nbsp;<span class="text-secondary font-extrabold text-base">&#8377;497 only</span></span>
+    <!-- Right: price + CTA -->
+    <div class="flex items-center gap-4">
+      <div class="leading-tight">
+        <span style="color:#666;font-size:0.7rem;text-decoration:line-through;">&#8377;2,497</span>
+        <span style="color:#fff;font-weight:800;font-size:1rem;margin-left:0.3rem;">&#8377;497</span>
+      </div>
+      <a href="#value" class="ub-cta-btn">Act Now &rarr;</a>
     </div>
-    <a href="#value" class="btn-shimmer text-primary font-extrabold py-3 px-8 rounded-xl shadow-xl hover:scale-105 transition-transform text-sm md:text-base shrink-0 whitespace-nowrap">
-      Act Now
-    </a>
-  </div>
 
+  </div>
 </div>
 
 <script>
@@ -1748,7 +1750,7 @@
     }
 
     /* add bottom padding to body so bar doesn't obscure content */
-    document.body.style.paddingBottom = '108px';
+    document.body.style.paddingBottom = '60px';
   })();
 </script>
 
