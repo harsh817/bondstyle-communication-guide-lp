@@ -163,14 +163,6 @@
     .faq-icon { transition: transform .3s cubic-bezier(.16,1,.3,1); }
     .faq-item.open .faq-icon { transform: rotate(180deg); }
 
-    /* â”€â”€â”€ sticky floating CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    #floating-cta {
-      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(140px);
-      transition: transform .45s cubic-bezier(.34,1.56,.64,1);
-      z-index: 999;
-    }
-    #floating-cta.show { transform: translateX(-50%) translateY(0); }
-
     /* â”€â”€â”€ progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #read-progress { position: fixed; top: 0; left: 0; height: 2px; background: rgb(var(--color-secondary-rgb)); width: 0%; z-index: 1000; }
 
@@ -1592,19 +1584,6 @@
   </div>
 </footer>
 
-
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FLOATING CTA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<div id="floating-cta">
-  <a href="#value"
-     class="btn-shimmer text-primary font-bold py-3.5 px-8 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center gap-2 text-sm">
-    <span class="material-icons text-base">bolt</span>
-    Get Bond Style â€” Rs 499
-    <span class="material-icons text-base">arrow_forward</span>
-  </a>
-</div>
-
-
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• JS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <script>
   /* â”€â”€â”€â”€ Hamburger Menu â”€â”€â”€â”€ */
   const hamburger = document.getElementById('hamburger');
@@ -1626,11 +1605,6 @@
     document.getElementById('read-progress').style.width = (scrolled / total * 100) + '%';
   });
 
-  /* â”€â”€â”€â”€ Floating CTA (show after 40% scroll) â”€â”€â”€â”€ */
-  window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    document.getElementById('floating-cta').classList.toggle('show', pct > 0.25);
-  });
 
   /* â”€â”€â”€â”€ Animated Counters â”€â”€â”€â”€ */
   const counterObs = new IntersectionObserver((entries) => {
