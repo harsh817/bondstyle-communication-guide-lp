@@ -153,8 +153,9 @@
     }
 
     /* â”€â”€â”€ ticker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .ticker-track { display: flex; white-space: nowrap; }
-    .ticker-track span { padding: 0 1rem; font-weight: 600; letter-spacing: .06em; color: #192350; font-size: .8rem; }
+    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ticker-track { display: flex; white-space: nowrap; width: max-content; animation: ticker-scroll 14s linear infinite; }
+    .ticker-track span { padding: 0 1.25rem; font-weight: 600; letter-spacing: .06em; color: #192350; font-size: .8rem; }
     .ticker-track span::before { content: "\25C6"; margin-right: .8rem; color: #B9915F; font-size: .55em; }
 
     /* â”€â”€â”€ FAQ accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -396,7 +397,7 @@
 
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TICKER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="overflow-hidden bg-secondary/10 border-b border-secondary/20 py-2.5">
-  <div class="ticker-track animate-ticker" style="animation: ticker 14s linear infinite;">
+  <div class="ticker-track">
     <!-- duplicated so it loops seamlessly -->
     <span>Eye Contact</span>
     <span>Body Language</span>
