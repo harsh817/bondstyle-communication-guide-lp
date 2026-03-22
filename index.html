@@ -170,6 +170,20 @@
     /* ─── power-of card description text: darker for readability ── */
     #power-of .p-6 p {
       color: rgb(var(--color-primary-rgb) / 0.85);
+      font-size: 15px !important;
+      line-height: 1.65 !important;
+    }
+    #modules li > p.text-sm.leading-relaxed {
+      font-size: 15px !important;
+      line-height: 1.65 !important;
+    }
+    .text-sm {
+      font-size: 15px !important;
+      line-height: 1.65 !important;
+    }
+    #relate .grid p.text-sm {
+      font-weight: 600 !important;
+      font-size: 16px !important;
     }
     /* ─── power-of card number: gold, serif to match heading, same size ── */
     #power-of .p-6 > div > p {
@@ -179,6 +193,46 @@
       font-weight: 700;
       line-height: 1.5rem;
     }
+    #comparison .text-sm {
+      font-size: 16px !important;
+    }
+    /* ─── Comparison panel image fade-out gradient ─── */
+    .comp-panel {
+      position: relative;
+    }
+    .comp-panel::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 150px;
+      width: 100%;
+      height: 40px;
+      z-index: 11;
+      pointer-events: none;
+    }
+    .comp-panel:first-child::after {
+      background: linear-gradient(to bottom, transparent 0%, rgb(25, 35, 80) 100%);
+    }
+    .comp-panel:last-child::after {
+      background: linear-gradient(to bottom, transparent 0%, rgb(185, 145, 95) 100%);
+    }
+    /* ─── Reduce spacing globally to shorten scroll ─── */
+    section { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    .mb-12 { margin-bottom: 1.5rem !important; }
+    .mb-10 { margin-bottom: 1.25rem !important; }
+    .mb-8 { margin-bottom: 1rem !important; }
+    .mb-6 { margin-bottom: 0.75rem !important; }
+    .py-12 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    .gap-8 { gap: 1rem !important; }
+    .gap-6 { gap: 1rem !important; }
+    .gap-5 { gap: 0.75rem !important; }
+    .gap-4 { gap: 0.75rem !important; }
+    .mt-14 { margin-top: 1.5rem !important; }
+    .mt-6 { margin-top: 0.75rem !important; }
+    #power-of .grid.gap-4 { gap: 0.75rem !important; }
+    .section-rule { display: none !important; }
+    .badge { display: none !important; }
+    header .badge { display: inline-flex !important; }
     /* ─── power-of card heading: match number size ── */
     #power-of .p-6 > div > h3 {
       font-size: 1rem;
@@ -396,6 +450,49 @@
   .ub-cta-btn:hover { opacity: 0.88; }
   .ub-cta-btn:active { transform: scale(0.93); filter: brightness(1.25); opacity: 1; }
 
+
+    .casual-underline {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .casual-underline::after {
+      content: '';
+      position: absolute;
+      left: -2%;
+      bottom: -4px;
+      width: 104%;
+      height: 12px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C30 2, 50 12, 80 6 S130 2, 160 8 S190 12, 198 4' fill='none' stroke='%23e8446d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      background-size: 100% 100%;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(185,145,95,0.4); transform: scale(1); }
+      50% { box-shadow: 0 0 12px 4px rgba(185,145,95,0.25); transform: scale(1.03); }
+    }
+    @keyframes dot-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    header .badge {
+      animation: badge-pulse 2.5s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    header .badge:hover {
+      transform: scale(1.06) !important;
+      box-shadow: 0 0 16px 6px rgba(185,145,95,0.35) !important;
+    }
+    header .badge-dot::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e8446d;
+      display: inline-block;
+      animation: dot-blink 1.2s ease-in-out infinite;
+    }
   </style>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -607,7 +704,7 @@
 
       <!-- Arjun -->
       <div class="reveal bg-white rounded-2xl p-7 shadow-md ring-1 ring-secondary/15 text-center" style="transition-delay:.1s">
-        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Arjun"/>
+        <img src="https://images.pexels.com/photos/6498090/pexels-photo-6498090.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Arjun"/>
         <p class="font-bold text-primary text-base">Arjun</p>
         <p class="text-primary/60 text-xs mb-2">Software Engineer, Pune</p>
         <div class="text-secondary text-base mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -629,7 +726,7 @@
 
       <!-- Varun -->
       <div class="reveal bg-white rounded-2xl p-7 shadow-md ring-1 ring-secondary/15 text-center" style="transition-delay:.3s">
-        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Varun"/>
+        <img src="https://images.pexels.com/photos/2590287/pexels-photo-2590287.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Varun"/>
         <p class="font-bold text-primary text-base">Varun</p>
         <p class="text-primary/60 text-xs mb-2">Architect, Delhi</p>
         <div class="text-secondary text-base mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -640,7 +737,7 @@
 
       <!-- Karan -->
       <div class="reveal bg-white rounded-2xl p-7 shadow-md ring-1 ring-secondary/15 text-center" style="transition-delay:.4s">
-        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Karan"/>
+        <img src="https://images.pexels.com/photos/6102858/pexels-photo-6102858.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop" class="w-24 h-24 rounded-full object-cover border-2 border-secondary/40 mx-auto mb-4 shadow-sm" alt="Karan"/>
         <p class="font-bold text-primary text-base">Karan</p>
         <p class="text-primary/60 text-xs mb-2">Marketing Professional, Hyderabad</p>
         <div class="text-secondary text-base mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -677,7 +774,7 @@
         <div class="text-center">
           <span class="badge bg-primary/10 border-primary/20 text-primary badge-dot">What You'll Be Able To Do</span>
           <span class="section-rule mt-4"></span>
-          <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 leading-tight tracking-tight">With the Power of the Bond Style Communication Guide, Built Specifically for Indian Men, You Can:</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 leading-tight tracking-tight">With the <span style="color:#ffffff">Power of the Bond Style Communication Guide,</span> Built Specifically for Indian Men, You Can:</h2>
         </div>
         <img src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?w=600&q=80" class="hidden md:block h-56 w-full object-cover rounded-2xl shadow-xl" alt="Man in conversation"/>
       </div>
@@ -687,111 +784,131 @@
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745254/1_qief8c.webp" style="width:334px;height:344px;object-fit:contain;" alt="Approaching and starting a conversation"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">01.</p>
-            <h3 class="font-bold text-primary text-lg">Walk Up and Start a Conversation With Any Woman Without Freezing</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">01.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Walk Up and Start a Conversation With Any Woman Without Freezing</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Never again stand there watching the moment pass and replaying it for an hour. You'll know exactly what to do and say the moment you see her.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Never again stand there watching the moment pass and replaying it for an hour. You'll know exactly what to do and say the moment you see her.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.05s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745254/2_ht49mc.webp" style="width:334px;height:344px;object-fit:contain;" alt="Keeping a conversation flowing"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">02.</p>
-            <h3 class="font-bold text-primary text-lg">Keep Any Conversation Going Without Running Out of Things to Say</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">02.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Keep Any Conversation Going Without Running Out of Things to Say</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">The blank mind mid-conversation is over. You'll have a simple mental system that keeps things flowing naturally in any situation, with anyone.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">The blank mind mid-conversation is over. You'll have a simple mental system that keeps things flowing naturally in any situation, with anyone.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.1s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745255/3_i48fxy.webp" style="width:334px;height:344px;object-fit:contain;" alt="Romantic conversation"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">03.</p>
-            <h3 class="font-bold text-primary text-lg">Make Any Conversation Romantic Without Being Obvious or Creepy</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">03.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Make Any Conversation Romantic Without Being Obvious or Creepy</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Know exactly when and how to take a friendly conversation and make it something more without it being awkward or coming on too strong.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Know exactly when and how to take a friendly conversation and make it something more without it being awkward or coming on too strong.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.15s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745254/4_xwmwpb.webp" style="width:334px;height:344px;object-fit:contain;" alt="Reading body language signals"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">04.</p>
-            <h3 class="font-bold text-primary text-lg">Read Every Signal She Sends and Never Misread a Moment Again</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">04.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Read Every Signal She Sends and Never Misread a Moment Again</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Know the signs she's interested and the signs she's not so you always respond correctly and never push past a moment that's already over.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Know the signs she's interested and the signs she's not so you always respond correctly and never push past a moment that's already over.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.2s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745254/5_cubopn.webp" style="width:334px;height:344px;object-fit:contain;" alt="Speaking with confidence"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">05.</p>
-            <h3 class="font-bold text-primary text-lg">Sound Like a Man Worth Listening To</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">05.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Sound Like a Man Worth Listening To</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Your voice, your pace, your pauses, all working for you. Deep, calm, confident even when you're nervous.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Your voice, your pace, your pauses, all working for you. Deep, calm, confident even when you're nervous.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.25s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745255/6_xhk3ai.webp" style="width:334px;height:344px;object-fit:contain;" alt="Walking in with confidence"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">06.</p>
-            <h3 class="font-bold text-primary text-lg">Walk Into Any Room Looking Like You Belong There</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">06.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Walk Into Any Room Looking Like You Belong There</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Your walk, your posture, your eye contact communicating confidence before you've said a single word.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Your walk, your posture, your eye contact communicating confidence before you've said a single word.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.3s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745255/7_jydmjm.webp" style="width:334px;height:344px;object-fit:contain;" alt="Active listening"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">07.</p>
-            <h3 class="font-bold text-primary text-lg">Make Her Feel Genuinely Understood, Not Just Heard</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">07.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Make Her Feel Genuinely Understood, Not Just Heard</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">The one skill that makes women want to keep talking to you. How to listen and respond in a way that makes her feel like you're the most attentive man she's ever met.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">The one skill that makes women want to keep talking to you. How to listen and respond in a way that makes her feel like you're the most attentive man she's ever met.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.35s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745255/8_oodap3.webp" style="width:334px;height:344px;object-fit:contain;" alt="Making her laugh"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">08.</p>
-            <h3 class="font-bold text-primary text-lg">Make Her Laugh in a Way That Creates Attraction, Not Just Friendship</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">08.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Make Her Laugh in a Way That Creates Attraction, Not Just Friendship</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Know exactly which type of humour creates chemistry and which one locks you in the friendzone. Be genuinely funny without preparing a single joke.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Know exactly which type of humour creates chemistry and which one locks you in the friendzone. Be genuinely funny without preparing a single joke.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow" style="transition-delay:.4s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745255/9_pqy5wu.webp" style="width:334px;height:344px;object-fit:contain;" alt="Texting and asking her out"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">09.</p>
-            <h3 class="font-bold text-primary text-lg">Ask Her Out in Person and Over Text So She Says Yes</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">09.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Ask Her Out in Person and Over Text So She Says Yes</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">No more big nervous moments. No more wondering if this is the right time. The exact words, the exact timing, the exact approach every time.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">No more big nervous moments. No more wondering if this is the right time. The exact words, the exact timing, the exact approach every time.</p>
         </div>
       </div>
 
       <div class="reveal bg-canvas rounded-2xl overflow-hidden shadow-sm ring-1 ring-primary/6 card-glow spotlight-card" style="transition-delay:.45s">
         <div class="bg-white flex items-center justify-center" style="width:334px;height:344px;margin:0 auto;"><img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1773745254/10_zyc3zj.webp" style="width:334px;height:344px;object-fit:contain;" alt="Handling every Indian situation"/></div>
-        <div class="p-6 text-center">
-          <div class="flex items-start justify-start gap-2 mb-2">
-            <p class="text-secondary font-semibold text-sm">10.</p>
-            <h3 class="font-bold text-primary text-lg">Handle Every Indian Situation With Complete Confidence</h3>
+        <div class="p-6 text-left">
+          <div class="flex items-start gap-2">
+            <p class="text-secondary font-semibold text-sm shrink-0 mt-0.5">10.</p>
+            <div>
+              <h3 class="font-bold text-primary text-lg">Handle Every Indian Situation With Complete Confidence</h3>
+              <p class="text-primary/85 text-sm leading-relaxed">Arranged marriage introduction. Office colleague you see every day. Wedding function. WhatsApp. Instagram DM. A specific playbook for every real situation you'll actually face.</p>
+            </div>
           </div>
-          <p class="text-primary/85 text-sm leading-relaxed">Arranged marriage introduction. Office colleague you see every day. Wedding function. WhatsApp. Instagram DM. A specific playbook for every real situation you'll actually face.</p>
         </div>
         </div>
       </div>
@@ -967,8 +1084,7 @@
   <div class="max-w-4xl mx-auto text-center">
 
     <div class="reveal mb-10">
-      <span class="badge bg-primary/10 border-primary/20 text-primary">Introducing</span>
-      <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary mt-4 leading-tight tracking-tight">Bond Style<br/><span class="text-canvas">Communication Guide</span></h2>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary mt-4 leading-tight tracking-tight"><span style="font-size:0.5em;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">Introducing</span><br/><span class="casual-underline">Bond Style</span><br/><span class="text-canvas">Communication Guide</span></h2>
       <p class="text-primary/80 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
         This is your complete, practical guide for talking to women in every situation you'll actually face.
         <strong class="text-primary">45 modules. Every skill covered. Written specifically for India.</strong> Simple, straight to the point, and 100% practical. This guide is about giving you the exact skills nobody ever taught you.
@@ -1043,7 +1159,7 @@
     <div class="text-center mb-12 reveal">
       <span class="badge bg-canvas/5 border-secondary/40 text-secondary">What You'll Learn</span>
       <span class="section-rule"></span>
-      <h2 class="text-3xl md:text-5xl font-bold text-canvas mt-2 tracking-tight">A Complete Guide For Verbal & Non-Verbal Communication</h2>
+      <h2 class="text-3xl md:text-5xl font-bold text-canvas mt-2 tracking-tight">A Complete Guide For <span style="color:#b9915f">Verbal &amp; Non-Verbal</span> Communication</h2>
       <p class="text-canvas/55 mt-3 max-w-xl mx-auto">Uniquely Designed For Indian Men To Walk & Talk Like SUPERSTARS.</p>
     </div>
 
@@ -1055,27 +1171,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">01.</span><p class="text-primary font-semibold text-sm leading-none">The First Impression Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Walk into any room so you look like you belong there before you say a word.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Walk into any room so you look like you belong there before you say a word.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">02.</span><p class="text-primary font-semibold text-sm leading-none">The Perfect Opening Sequence</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">A tested, natural opener for every Indian situation: cafe, gym, office, wedding, college, cold approach.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">A tested, natural opener for every Indian situation: cafe, gym, office, wedding, college, cold approach.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">03.</span><p class="text-primary font-semibold text-sm leading-none">The Approach Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">One rule that gets you walking up before your brain talks you out of it. Works every time.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">One rule that gets you walking up before your brain talks you out of it. Works every time.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">04.</span><p class="text-primary font-semibold text-sm leading-none">The Body Language Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Posture, hands, shoulders, distance: everything your body communicates before you speak.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Posture, hands, shoulders, distance: everything your body communicates before you speak.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">05.</span><p class="text-primary font-semibold text-sm leading-none">The Eye Contact Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">How long to hold it, where to look, when to break it, and how to use it to create attraction.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">How long to hold it, where to look, when to break it, and how to use it to create attraction.</p>
           </li>
         </ul>
       </div>
@@ -1086,27 +1202,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">06.</span><p class="text-primary font-semibold text-sm leading-none">The Facial Expression Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">The smile, the resting face, the storytelling face: what your face says without you knowing.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">The smile, the resting face, the storytelling face: what your face says without you knowing.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">07.</span><p class="text-primary font-semibold text-sm leading-none">The Deep Voice Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">A 30-day daily exercise plan to make your voice deeper, slower, and more confident permanently.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">A 30-day daily exercise plan to make your voice deeper, slower, and more confident permanently.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">08.</span><p class="text-primary font-semibold text-sm leading-none">The Nervous Voice Fix</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">The 5 voice habits that signal anxiety, and how to eliminate each one in 7 days.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">The 5 voice habits that signal anxiety, and how to eliminate each one in 7 days.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">09.</span><p class="text-primary font-semibold text-sm leading-none">The Never Run Out of Things to Say Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Topic categories and a simple system so you always have somewhere to go. No more blank mind.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Topic categories and a simple system so you always have somewhere to go. No more blank mind.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">10.</span><p class="text-primary font-semibold text-sm leading-none">The Listening Framework</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Listen in a way that makes her feel heard and want to keep opening up to you.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Listen in a way that makes her feel heard and want to keep opening up to you.</p>
           </li>
         </ul>
       </div>
@@ -1117,27 +1233,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">11.</span><p class="text-primary font-semibold text-sm leading-none">The Deep Questions Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Ask questions that take any conversation from small talk to something she actually remembers.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Ask questions that take any conversation from small talk to something she actually remembers.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">12.</span><p class="text-primary font-semibold text-sm leading-none">The First Date Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">What to talk about, what to avoid, and how to make her want a second one.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">What to talk about, what to avoid, and how to make her want a second one.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">13.</span><p class="text-primary font-semibold text-sm leading-none">The Flirt Framework</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Take a normal conversation and make it romantic without being obvious, weird, or too much.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Take a normal conversation and make it romantic without being obvious, weird, or too much.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">14.</span><p class="text-primary font-semibold text-sm leading-none">The Signal Decoder</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Spot signs she's interested or not so you never misread a moment again.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Spot signs she's interested or not so you never misread a moment again.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">15.</span><p class="text-primary font-semibold text-sm leading-none">The Compliment Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Compliment her in a way that actually lands, not one she's heard a hundred times.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Compliment her in a way that actually lands, not one she's heard a hundred times.</p>
           </li>
         </ul>
       </div>
@@ -1148,27 +1264,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">16.</span><p class="text-primary font-semibold text-sm leading-none">The Attraction Humour Framework</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">4 types of humour: which creates attraction and which creates the friendzone.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">4 types of humour: which creates attraction and which creates the friendzone.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">17.</span><p class="text-primary font-semibold text-sm leading-none">The Spontaneous Wit Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Be genuinely funny in real time without preparing a single joke.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Be genuinely funny in real time without preparing a single joke.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">18.</span><p class="text-primary font-semibold text-sm leading-none">The Story Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Structure any story so people listen till the very end. Works with completely ordinary life moments.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Structure any story so people listen till the very end. Works with completely ordinary life moments.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">19.</span><p class="text-primary font-semibold text-sm leading-none">The Story Delivery Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Use your voice, face and hands while telling a story so it feels like a scene, not a report.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Use your voice, face and hands while telling a story so it feels like a scene, not a report.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">20.</span><p class="text-primary font-semibold text-sm leading-none">The Deep Talk Trigger</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">The exact moment and words to move past surface conversation into something real.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">The exact moment and words to move past surface conversation into something real.</p>
           </li>
         </ul>
       </div>
@@ -1179,27 +1295,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">21.</span><p class="text-primary font-semibold text-sm leading-none">The Emotional Connection Mastery</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Respond to what she says so she feels genuinely understood, not just heard.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Respond to what she says so she feels genuinely understood, not just heard.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">22.</span><p class="text-primary font-semibold text-sm leading-none">The Sharing Personal Life Framework</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">How much to share, when, and how so it creates closeness, not awkwardness.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">How much to share, when, and how so it creates closeness, not awkwardness.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">23.</span><p class="text-primary font-semibold text-sm leading-none">The Meeting Ask Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Exactly what to say when you want to see her again. No big moment, just the natural next step.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Exactly what to say when you want to see her again. No big moment, just the natural next step.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">24.</span><p class="text-primary font-semibold text-sm leading-none">The Complete Texting Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">When to text, what to say, how long to wait so every conversation builds interest instead of killing it.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">When to text, what to say, how long to wait so every conversation builds interest instead of killing it.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">25.</span><p class="text-primary font-semibold text-sm leading-none">The Voice Note Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">When to send, how long to keep it, and exactly what to say so it creates warmth and engagement.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">When to send, how long to keep it, and exactly what to say so it creates warmth and engagement.</p>
           </li>
         </ul>
       </div>
@@ -1210,27 +1326,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">26.</span><p class="text-primary font-semibold text-sm leading-none">The Call Conversation Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Smooth, natural phone calls: what to talk about, how to keep energy up, how to end it so she looks forward to the next one.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Smooth, natural phone calls: what to talk about, how to keep energy up, how to end it so she looks forward to the next one.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">27.</span><p class="text-primary font-semibold text-sm leading-none">The Friendzone Exit Plan</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">A specific two-week approach to shift the dynamic with someone who sees you as just a friend.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">A specific two-week approach to shift the dynamic with someone who sees you as just a friend.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">28.</span><p class="text-primary font-semibold text-sm leading-none">The Show Romantic Interest Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Make it clear you're interested without being too forward, too subtle, or sending mixed signals.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Make it clear you're interested without being too forward, too subtle, or sending mixed signals.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">29.</span><p class="text-primary font-semibold text-sm leading-none">The Second Meeting Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">What to do and say between the first and second meeting so she's looking forward to it.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">What to do and say between the first and second meeting so she's looking forward to it.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">30.</span><p class="text-primary font-semibold text-sm leading-none">The Date Planner</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">The place, conversation, energy, and goodbye: everything that makes a date she actually enjoys.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">The place, conversation, energy, and goodbye: everything that makes a date she actually enjoys.</p>
           </li>
         </ul>
       </div>
@@ -1241,27 +1357,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">31.</span><p class="text-primary font-semibold text-sm leading-none">The Date Etiquette and Manners Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">What to do, what not to do, and what women actually notice on a date.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">What to do, what not to do, and what women actually notice on a date.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">32.</span><p class="text-primary font-semibold text-sm leading-none">The Dress Sharp Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Exactly what to wear for a date, wedding, meeting her family, or an office party. Specific, not vague.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Exactly what to wear for a date, wedding, meeting her family, or an office party. Specific, not vague.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">33.</span><p class="text-primary font-semibold text-sm leading-none">The Social Confidence Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Carry yourself with her friends, her family, or walking into a party alone.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Carry yourself with her friends, her family, or walking into a party alone.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">34.</span><p class="text-primary font-semibold text-sm leading-none">The Small Details Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">The small things women always notice and men almost never think about.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">The small things women always notice and men almost never think about.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">35.</span><p class="text-primary font-semibold text-sm leading-none">The Online Dating Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">A profile that gets matches, photos that work, and conversations that actually go somewhere.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">A profile that gets matches, photos that work, and conversations that actually go somewhere.</p>
           </li>
         </ul>
       </div>
@@ -1272,27 +1388,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">36.</span><p class="text-primary font-semibold text-sm leading-none">The Video Call Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Have a good video call conversation so it doesn't feel awkward or flat.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Have a good video call conversation so it doesn't feel awkward or flat.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">37.</span><p class="text-primary font-semibold text-sm leading-none">The Instagram Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Keep a conversation going on Instagram without it dying after three messages.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Keep a conversation going on Instagram without it dying after three messages.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">38.</span><p class="text-primary font-semibold text-sm leading-none">The Group Approach Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Talk to a girl who's with friends without it being weird or making anyone uncomfortable.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Talk to a girl who's with friends without it being weird or making anyone uncomfortable.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">39.</span><p class="text-primary font-semibold text-sm leading-none">The Difficult Conversation Guide</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">How to apologise and handle disagreements without losing her respect.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">How to apologise and handle disagreements without losing her respect.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">40.</span><p class="text-primary font-semibold text-sm leading-none">The Parent Meeting Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">How to talk to her parents. Specifically written for the Indian context.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">How to talk to her parents. Specifically written for the Indian context.</p>
           </li>
         </ul>
       </div>
@@ -1303,27 +1419,27 @@
         <ul>
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">41.</span><p class="text-primary font-semibold text-sm leading-none">The Arranged Marriage Meeting Playbook</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Make the introduction feel like a real conversation, not a job interview.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Make the introduction feel like a real conversation, not a job interview.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">42.</span><p class="text-primary font-semibold text-sm leading-none">The Daily Encounter Method</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Build something with someone you see every day at office or college.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Build something with someone you see every day at office or college.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">43.</span><p class="text-primary font-semibold text-sm leading-none">The Reengage Formula</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Start talking to someone again after a long gap without it being awkward.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Start talking to someone again after a long gap without it being awkward.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">44.</span><p class="text-primary font-semibold text-sm leading-none">The Everlasting Confidence Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">Build confidence that shows up in every conversation, not just when you're following a technique.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">Build confidence that shows up in every conversation, not just when you're following a technique.</p>
           </li>
           <hr class="border-t border-secondary/20 mx-5">
           <li class="px-5 py-4">
             <div class="flex items-center gap-2"><span class="text-secondary text-sm font-black shrink-0">45.</span><p class="text-primary font-semibold text-sm leading-none">The Attraction Blueprint</p></div>
-            <p class="text-primary/80 text-xs mt-1 leading-relaxed">What women actually want from a conversation and the man they choose to keep talking to.</p>
+            <p class="text-primary/80 text-sm mt-1 leading-relaxed">What women actually want from a conversation and the man they choose to keep talking to.</p>
           </li>
         </ul>
       </div>
