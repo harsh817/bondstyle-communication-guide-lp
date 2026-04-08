@@ -48,7 +48,7 @@
 <a class="hover:text-secondary transition-colors" href="#value">What You Get</a>
 <a class="hover:text-secondary transition-colors" href="#faq">FAQ</a>
 </div>
-<a class="bg-secondary text-primary font-bold py-2 px-6 rounded hover:bg-white transition-colors text-sm text-center" href="#checkout">Get the Bond Style System at Rs 499</a>
+<a class="bg-secondary text-primary font-bold py-2 px-6 rounded hover:bg-white transition-colors text-sm text-center" href="https://thriveonp.com/offer">Get the Bond Style System at Rs 497</a>
 </nav>
 <header class="py-20 px-6 md:px-12 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
 <div class="md:w-1/2 space-y-6">
@@ -56,7 +56,7 @@
 <p class="text-lg font-semibold text-primary opacity-90">Struggling to articulate your thoughts, feeling ignored in conversations, or lacking the confidence to approach women?</p>
 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight">Your Complete Guide to Walk and Talk Like a Confident Man at a Price That Won't Burn Your Pocket.</h1>
 <div class="pt-4 flex flex-col gap-4">
-<a class="bg-primary text-white text-center font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1 text-lg" href="#checkout">
+<a class="bg-primary text-white text-center font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1 text-lg" href="https://thriveonp.com/offer">
                     Start Talking to Women With Confidence Today
                 </a>
 <div class="flex items-center gap-2 text-sm font-semibold text-secondary">
@@ -147,7 +147,7 @@
 </div>
 </div>
 <div class="mt-12 text-center">
-<a class="bg-primary text-white text-center font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1 text-lg inline-block" href="#checkout">
+<a class="bg-primary text-white text-center font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1 text-lg inline-block" href="https://thriveonp.com/offer">
         Start Talking to Women With Confidence Today
     </a>
 </div>
@@ -232,9 +232,9 @@
 </div>
 <div class="mt-12 text-center border-t border-white/20 pt-8">
 <p class="text-xl mb-2">Total Value: <span class="line-through opacity-70 text-red-400">Rs 38,998</span></p>
-<p class="text-4xl md:text-5xl font-extrabold text-secondary mb-8">Today's Price: Rs 499</p>
-<a class="mt-4 inline-block bg-secondary text-primary font-bold py-5 px-10 rounded-lg text-xl shadow-[0_0_20px_rgba(185,145,95,0.4)] hover:shadow-[0_0_30px_rgba(185,145,95,0.6)] hover:bg-white transition-all transform hover:-translate-y-1 w-full md:w-auto" href="#checkout">
-                    Get the Bond Style System at Rs 499
+<p class="text-4xl md:text-5xl font-extrabold text-secondary mb-8">Today's Price: Rs 497</p>
+<a class="mt-4 inline-block bg-secondary text-primary font-bold py-5 px-10 rounded-lg text-xl shadow-[0_0_20px_rgba(185,145,95,0.4)] hover:shadow-[0_0_30px_rgba(185,145,95,0.6)] hover:bg-white transition-all transform hover:-translate-y-1 w-full md:w-auto" href="https://thriveonp.com/offer">
+                    Get the Bond Style System at Rs 497
                 </a>
 </div>
 </div>
@@ -265,7 +265,7 @@
 </div>
 <div class="bg-white p-6 rounded-lg shadow-sm border border-primary/10">
 <h3 class="text-lg font-bold text-primary mb-2">6. Are there hidden fees or subscriptions?</h3>
-<p class="text-sm text-gray-700">No. Rs 499 is a one-time payment for lifetime access.</p>
+<p class="text-sm text-gray-700">No. Rs 497 is a one-time payment for lifetime access.</p>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-sm border border-primary/10">
 <h3 class="text-lg font-bold text-primary mb-2">7. Is my payment secure?</h3>
@@ -274,6 +274,28 @@
 </div>
 </div>
 </section>
+<script>
+(() => {
+    const offerUrl = 'https://thriveonp.com/offer';
+    const currentParams = new URLSearchParams(window.location.search);
+
+    if (!currentParams.toString()) {
+        return;
+    }
+
+    document.querySelectorAll(`a[href="${offerUrl}"]`).forEach((link) => {
+        const url = new URL(offerUrl);
+
+        currentParams.forEach((value, key) => {
+            if (!url.searchParams.has(key)) {
+                url.searchParams.set(key, value);
+            }
+        });
+
+        link.href = url.toString();
+    });
+})();
+</script>
 <footer class="bg-primary text-white/60 py-12 px-6 md:px-12 border-t border-white/10 text-sm">
 <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
 <div class="text-xl font-display font-bold text-white tracking-wider">BOND STYLE</div>
