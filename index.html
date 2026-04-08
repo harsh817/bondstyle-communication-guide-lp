@@ -1362,6 +1362,14 @@
 
   /* ──── Countdown Timer (reset daily at midnight) ──── */
   function updateCountdown() {
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+
+    if (!hoursEl || !minsEl || !secsEl) {
+      return;
+    }
+
     const now   = new Date();
     const end   = new Date(now);
     end.setHours(23, 59, 59, 0);
@@ -1369,9 +1377,9 @@
     const h = Math.floor(diff / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    hoursEl.textContent = String(h).padStart(2,'0');
+    minsEl.textContent  = String(m).padStart(2,'0');
+    secsEl.textContent  = String(s).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
