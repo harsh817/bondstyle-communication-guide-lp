@@ -1,0 +1,15 @@
+{
+  "name": "bondstyle-communication-guide-lp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "http-server -p 8000"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "clean-css-cli": "^5.6.3",
+    "http-server": "^14.1.1",
+    "tailwindcss": "^3.4.19"
+  }
+}
