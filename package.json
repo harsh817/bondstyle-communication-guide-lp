@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "http-server -p 8000"
+    "start": "node serve.js"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",

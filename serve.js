@@ -5,6 +5,21 @@ const path = require('path');
 const root = __dirname;
 const port = 8000;
 
+const redirectRoutes = {
+  '/privacy.html': '/privacy-policy.html',
+  '/terms.html': '/terms-of-service.html',
+  '/refund.html': '/refund-policy.html',
+  '/privacy-policy': '/privacy-policy.html',
+  '/privacy-policy/': '/privacy-policy.html',
+  '/terms-of-service': '/terms-of-service.html',
+  '/terms-of-service/': '/terms-of-service.html',
+  '/refund-policy': '/refund-policy.html',
+  '/refund-policy/': '/refund-policy.html',
+  '/index.php/privacy-policy/': '/privacy-policy.html',
+  '/index.php/terms-conditions/': '/terms-of-service.html',
+  '/index.php/refund_returns/': '/refund-policy.html'
+};
+
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -21,6 +36,16 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
   let requestPath = decodeURIComponent((req.url || '/').split('?')[0]);
+
+  if (redirectRoutes[requestPath]) {
+    res.writeHead(301, {
+      Location: redirectRoutes[requestPath],
+      'Cache-Control': 'no-store'
+    });
+    res.end();
+    return;
+  }
+
   if (requestPath === '/') {
     requestPath = '/index.html';
   }

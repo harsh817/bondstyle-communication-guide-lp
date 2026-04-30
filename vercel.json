@@ -1,0 +1,75 @@
+{
+  "redirects": [
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/refund.html",
+      "destination": "/refund-policy",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/privacy-policy/",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/terms-conditions/",
+      "destination": "/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/refund_returns/",
+      "destination": "/refund-policy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service/",
+      "destination": "/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy/",
+      "destination": "/refund-policy",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/refund.html",
+      "destination": "/refund-policy.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/refund-policy.html"
+    }
+  ]
+}

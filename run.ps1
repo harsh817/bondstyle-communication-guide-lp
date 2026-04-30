@@ -1,7 +1,7 @@
 param()
 
 # PowerShell runner for the project.
-# Tries: 1) `npx http-server`, 2) `python -m http.server`, 3) open local index.html
+# Tries: 1) `node serve.js`, 2) `npx http-server`, 3) `python -m http.server`, 4) open local index.html
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
@@ -41,6 +41,23 @@ function Wait-For-Url {
         Start-Sleep -Milliseconds 300
     }
     return $false
+}
+
+# Try node/serve.js first so redirect routes work locally.
+if (Get-Command node -ErrorAction SilentlyContinue) {
+    Write-Output "Starting local Node server on http://localhost:8000"
+    try {
+        $serverProc = Start-Process -FilePath node -ArgumentList 'serve.js' -WorkingDirectory $root -WindowStyle Hidden -PassThru
+        if (Wait-For-Url 'http://localhost:8000' 6) {
+            $browserProc = Start-Process 'http://localhost:8000' -PassThru
+            Try-Set-Foreground $browserProc
+            exit
+        } else {
+            Write-Warning "http://localhost:8000 did not become available; trying alternate server options"
+        }
+    } catch {
+        Write-Warning "Failed to start node serve.js: $_"
+    }
 }
 
 # Try npx/http-server (use cmd.exe to invoke npx for better reliability)
